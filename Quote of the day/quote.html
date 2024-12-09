@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quote of the day</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="quote-box">
+        <h2>Quote of the day</h2>
+        <blockquote id="quote">The only limit to our realization of tomorrow is our doubts of today.</blockquote>
+        <span id="author">Franklin D. Roosevelt</span>
+        <div>
+            <button onclick="newQuote()">New Quote</button>
+            <button onclick="tweet()"><img src="xtwit.png">Share</button>
+        </div>
+    </div>
+    <script>
+        const quotes = [
+  { text: "Believe you can and you're halfway there.", author: "Theodore Roosevelt" },
+  { text: "It does not matter how slowly you go as long as you do not stop.", author: "Confucius" },
+  { text: "Success is not final, failure is not fatal: It is the courage to continue that counts.", author: "Winston Churchill" },
+  { text: "Don't watch the clock; do what it does. Keep going.", author: "Sam Levenson" },
+  { text: "You miss 100% of the shots you don't take.", author: "Wayne Gretzky" },
+    ];
+
+        function newQuote() {
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            document.getElementById('quote').innerText = `"${quotes[randomIndex].text}"`;
+            document.getElementById('author').innerText = quotes[randomIndex].author;
+        }
+        
+        function tweet(){
+            window.open("https://twitter.com/intent/tweet?text=" + quote +"------ By" + author,
+            "Tweet Window", "width=600, height=300");
+        }
+    </script>
+</body>
+</html>
